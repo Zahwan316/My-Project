@@ -1,0 +1,248 @@
+/* for phone */
+
+@media screen and (min-width:280px) and (max-width:940px) {
+    *{
+        padding: 0;
+        margin:0;
+        box-sizing: border-box;
+    }
+
+
+    body{
+        overflow-x: hidden;
+    }
+
+    main{
+        height: 190vh;
+        display: flex;
+        justify-content: center;
+    
+    }
+    /* nav */
+    nav{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        
+    }
+
+    nav .logo{
+        width: 28%;
+        height: 100%;
+    }
+
+    .logo-img-container{
+        width: 25vw;
+        height: 100%;
+        display: flex;
+    }
+
+    .logout-container{
+        width: 10vw;
+    }
+
+    .logout-container a button{
+        width: 18vw;
+    }
+
+    .phone-menu-button{
+        display: flex;
+    }
+
+    .text-logo{
+        left:0;
+    }
+
+    .func-logout{
+        display: none;
+    }
+
+    /* sidebar */
+    .sidebar{
+        display: none;
+        left:0;
+        width:65vw
+    }
+
+    .sidebar ul{
+        width: 100%;
+    }
+
+    .sidebar li{
+        width: 100%;
+    }
+
+    .account .imgcontainer{
+        width: 12vw;
+        margin-right: 4vw;
+    }
+
+    .btn-logout{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .sidebaranm{
+        animation:sidebaranimation 1s ease;
+    }
+
+    .closesidebaranm{
+        animation:closesidebaranimation 1s ease;
+    }
+
+    @keyframes sidebaranimation {
+        0%{
+            width: 0;
+            opacity:0
+        }
+        80%{
+            opacity:1
+        }
+        100%{
+            width: 65vw;
+        }
+    }
+
+    @keyframes closesidebaranimation {
+        0%{
+            width: 65vw;
+        }
+        100%{
+            width: 0;
+        }
+    }
+
+
+    /* main-content */
+    .main-content{
+        width: 97%;
+        left:0;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin:0;
+    }
+
+    /* dashboard */
+
+    .top{
+        display: flex;
+        flex-direction: column;
+        height: 60vh;
+        align-items: center;
+    }
+
+    .data-card{
+        width: 90%;
+        margin-bottom:3vh
+    }
+
+    .main-content-mid{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding:1vh 1vw
+    }
+
+    .siswa-card{
+        width: 90%;
+        margin-bottom:2vh
+    }
+
+    .button-content a{
+        display: flex;
+        justify-content: center;
+    }
+
+    .title-mid{
+        padding:1vh 1vw;
+        position: relative;
+        left: 3vw; 
+    }
+
+    /* lihat siswa */
+
+    .button-edit p,.button-class p{
+        display: none;
+    }
+
+    .title-main{
+        width: 90%;
+        display: flex;
+        align-items: center;
+    }
+
+    /* siswa */
+
+
+
+    /* kelas */
+    .button-add{
+        width: 15vw;
+    }
+
+    .button-add p{
+        display: none;
+    }
+
+    .main-table table{
+        width: 100%;
+    }
+
+    .main-table table tbody{
+        width: 20vw !important;
+    }
+
+    /* --------------------Input Pelanggaran-------------- */
+
+    .link-poin button span{
+        display: none;
+    }
+
+    .input-container{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .input-items,.input-items3{
+        width: 100%;
+        height: 10vh;
+        margin-bottom:4vh
+    }
+
+    .box-container{
+        padding:1vh 1vw;
+       
+    }
+
+    .main-content{
+        height: 180vh;
+    }
+
+    .input-items3 input{
+        width: 100%;
+    }
+
+    /* -------- Logs ------------ */
+    .date-content{
+        width: 26vw;
+    }
+
+    .log-content{
+        margin-bottom:2vh
+    }
+
+    /* --------------- Login ---------------- */
+
+    .login .box{
+        width: 90vw;
+        height: 40vh;
+        top:0 !important;
+    }
+
+    .login{
+        height: 80vh;
+    }
+
+}
