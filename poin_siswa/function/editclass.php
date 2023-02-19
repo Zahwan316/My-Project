@@ -1,6 +1,7 @@
 <?php
 require "config.php";
-
+ob_start();
+session_start();
 
 if(isset($_POST['simpan_btn'])){
     $kelas_input = htmlspecialchars($_POST["kelas_input"]);

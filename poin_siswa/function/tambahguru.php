@@ -4,9 +4,10 @@ session_start();
 $nama = htmlspecialchars($_POST["input_nama"]);
 $username = htmlspecialchars($_POST["input_username"]);
 $password = htmlspecialchars( $_POST["input_password"]);
+$role= htmlspecialchars( $_POST["input_role"]);
 $id = rand(1000,5000);
 
-mysqli_query($conn, "INSERT INTO user VALUES('$nama','$username','$password','$id')");
+mysqli_query($conn, "INSERT INTO user VALUES('$nama','$username','$password','$id','$role')");
 
 header("location:../view/guru.php");
 

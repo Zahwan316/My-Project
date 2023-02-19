@@ -2,6 +2,7 @@
 require "../function/config.php";
 require "../function/readsiswakelas.php";
 require "../function/readsiswa.php";
+ob_start();
 //tambah siswa
 if (isset($_POST['simpansiswa'])) {
     
