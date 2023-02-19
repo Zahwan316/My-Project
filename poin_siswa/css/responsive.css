@@ -18,17 +18,39 @@
         justify-content: center;
     
     }
+
     /* nav */
     nav{
         width: 100%;
+        border-bottom: 2px solid #17eefd;
+        background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+        height: 8vh;
         display: flex;
+        flex-direction: row-reverse;
         justify-content: space-between;
-        
+        padding:0 4vw;
     }
 
     nav .logo{
-        width: 28%;
-        height: 100%;
+        width: auto;
+        height: 90%;
+        margin-top: auto;
+        margin-bottom: auto;
+        position: relative;
+        left:-50vw;
+    }
+
+    nav .logo h2{
+        font-size: 1.8rem;
+        margin: auto;
+        position: relative;
+        top:-.5vh;
+        left:-5vw;
+    }
+
+    .text-logo{
+        display: flex;
+        align-items: center;
     }
 
     .logo-img-container{
@@ -39,6 +61,7 @@
 
     .logout-container{
         width: 10vw;
+        margin-right: 10px;
     }
 
     .logout-container a button{
@@ -49,27 +72,25 @@
         display: flex;
     }
 
-    .text-logo{
-        left:0;
-    }
-
     .func-logout{
         display: none;
     }
 
     /* sidebar */
     .sidebar{
+        width: 32vh;
         display: none;
-        left:0;
-        width:65vw
+        left: 0;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.589);
     }
 
     .sidebar ul{
-        width: 100%;
+        width: 90%;
     }
 
     .sidebar li{
         width: 100%;
+        padding-left: 20px;
     }
 
     .account .imgcontainer{
@@ -83,29 +104,29 @@
     }
 
     .sidebaranm{
-        animation:sidebaranimation 1s ease;
+        animation: sidebaranimation 0.3s ease;
     }
 
     .closesidebaranm{
-        animation:closesidebaranimation 1s ease;
+        animation: closesidebaranimation 0.3s ease;
     }
 
     @keyframes sidebaranimation {
         0%{
             width: 0;
-            opacity:0
+            opacity: 0;
         }
         80%{
-            opacity:1
+            opacity: 1;
         }
         100%{
-            width: 65vw;
+            width: 32vh;
         }
     }
 
     @keyframes closesidebaranimation {
         0%{
-            width: 65vw;
+            width: 32vh;
         }
         100%{
             width: 0;
@@ -123,13 +144,27 @@
         margin:0;
     }
 
+
     /* dashboard */
 
     .top{
         display: flex;
         flex-direction: column;
-        height: 60vh;
+        height: 40vh;
         align-items: center;
+    }
+
+    .data-card .container-icon{
+        width: 20%;
+    }
+
+    .data-card .container-text{
+        width: 80%;
+        padding: 0.5vh 1.5vh;
+    }
+
+    .data-card .container-icon i{
+        font-size: 2rem;
     }
 
     .data-card{
@@ -149,6 +184,12 @@
         margin-bottom:2vh
     }
 
+    .siswa-card .name-content {
+        background-color: #f1f1f1;
+        width: 90%;
+        padding: 10px 1vh;
+    }
+
     .button-content a{
         display: flex;
         justify-content: center;
@@ -160,6 +201,19 @@
         left: 3vw; 
     }
 
+    .siswa-card .poin-content p{
+        margin-left: 2vh;
+    }
+
+    .siswa-card .poin-content span{
+        margin-right: 2vh;
+    }
+
+    .siswa-card .button-content {
+        height: 15vh;
+    }
+
+
     /* lihat siswa */
 
     .button-edit p,.button-class p{
@@ -170,6 +224,8 @@
         width: 90%;
         display: flex;
         align-items: center;
+        text-align: center;
+        font-size: 12px;
     }
 
     /* siswa */
@@ -178,7 +234,7 @@
 
     /* kelas */
     .button-add{
-        width: 15vw;
+        width: 5vw;
     }
 
     .button-add p{
@@ -190,13 +246,134 @@
     }
 
     .main-table table tbody{
-        width: 20vw !important;
+        width: 18vw !important;
+    }
+
+    .android-version{
+        display: flex;
+    }
+
+    .pc-version{
+        display: none;
+    }
+
+    .list-action{
+        background-color:blue;
+        width: 8vw;
+        height: 100%;
+        border: none;
+        color:white;
+        border-radius:8px
+    }
+
+    .android-dpnone{
+        display: none !important;
+    }
+
+    .android-dpflex{
+        display: flex !important;
+    }
+
+    .listbox-android{
+        position: absolute;
+        background-color:gray;
+        width: 30vw;
+        height: 6vh;
+        right:20vw;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        display: none;
+    }
+
+    .listbox-android .btn-trash{
+        width: 8vw;
     }
 
     /* --------------------Input Pelanggaran-------------- */
 
     .link-poin button span{
         display: none;
+    }
+
+    .btn-tatatertib p{
+        display: none;
+    }
+
+    .btn-tatatertib {
+        width: 12vw;
+        height: 12vw;
+    }
+
+    .main-box {
+        margin-top: 10px;
+    }
+
+    .btn-tatatertib i {
+        font-size: 1.8rem;
+    }
+
+    .button-top .btn-delete-top p,
+    .button-top .button-add p{
+        display: none;
+    }
+
+    .button-top .btn-delete-top i,
+    .button-top .button-add i{
+        font-size: 1.5rem;
+        color: #f1f1f1;
+        display: flex;
+    }
+
+    .button-top .btn-delete-top i{
+        margin: 0 25%;
+    }
+
+    .button-top .button-add{
+        margin-left: 8vh;
+    }
+    .button-top .btn-delete-top{
+        left: 29vh;
+        position: absolute;
+        width: 10vh;
+    }
+
+    .button-top {
+        width: 23vh;
+    }
+
+    .link-poin button i{
+        font-size: 1.5rem;
+        display: flex;
+        text-align: center;
+        padding-left: 25%;
+        padding-right: 25%;
+    }
+
+    .title-box h2{
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+
+    .title-box .judul {
+        font-size: 1.5rem;
+        margin: 0px;
+    }
+
+    .title-box .judul2 {
+        font-size: 1.2rem;
+        margin: 10px 6vh 0 0;
+        width: 29vh;
+    }
+
+    .btn-cari {
+        width: 15vw;
+    }
+
+    .input-main input[type="text"]:nth-child(2){
+        width: 15vh;
     }
 
     .input-container{
@@ -224,6 +401,17 @@
         width: 100%;
     }
 
+    .tbody td:nth-child(2){
+        height: 5vh;
+        padding: 1px;
+        width: 2vh!important;
+    }
+    
+    /* ----- Sidebar ---------- */
+    .sidebar ul li:nth-child(6) {
+        display: flex;
+    }
+
     /* -------- Logs ------------ */
     .date-content{
         width: 26vw;
@@ -232,17 +420,4 @@
     .log-content{
         margin-bottom:2vh
     }
-
-    /* --------------- Login ---------------- */
-
-    .login .box{
-        width: 90vw;
-        height: 40vh;
-        top:0 !important;
-    }
-
-    .login{
-        height: 80vh;
-    }
-
 }

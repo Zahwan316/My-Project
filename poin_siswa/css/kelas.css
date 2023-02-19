@@ -399,3 +399,10 @@ body{
 .main-table tr:nth-child(even){
     background-color: transparent !important;
 }
+
+/* user menu */
+
+.dprow{
+    display: flex;
+    flex-direction: row;
+}

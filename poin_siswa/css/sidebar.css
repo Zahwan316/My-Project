@@ -244,5 +244,14 @@ main{
     border-right: 1px solid white;
 }
 
+.pc-version{
+    display: flex;
+    flex-direction: row;
+}
+
+.android-version{
+    display: none;
+}
+
 
 
