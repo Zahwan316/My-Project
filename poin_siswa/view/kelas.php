@@ -147,7 +147,7 @@ require "../function/cek_user.php";
                                 <th>No</th>
                                 <th>Kelas</th>
                                 <th>Siswa</th>
-                                <th>Pelanggaran</th>
+                                <th class="android-dpnone">Pelanggaran</th>
                                 <th>Poin</th>
                                 <th>Opsi</th>
                             </tr>
@@ -161,26 +161,54 @@ require "../function/cek_user.php";
                                     <td><?php echo $i;$i++ ?></td>
                                     <td><?php echo $row["nama_kelas"]; ?></td>
                                     <td><?php echo $row["siswa"]; ?></td>
-                                    <td><?php echo $row["pelanggaran"]; ?></td>
+                                    <td class='android-dpnone'><?php echo $row["pelanggaran"]; ?></td>
                                     <td><?php echo $row["poin"]; ?></td>
                                     <td class="flex-row btn-table">
-                                        <a href="siswa.php?c_kelas=<?php echo $row["c_kelas"]; ?>">
-                                            <button class="btn-view">
-                                                <i class="fa fa-eye"></i>
-                                                Lihat Siswa
+                                        <div class="pc-version">
+                                            <a href="siswa.php?c_kelas=<?php echo $row["c_kelas"]; ?>">
+                                                <button class="btn-view">
+                                                    <i class="fa fa-eye"></i>
+                                                    Lihat Siswa
+                                                </button>
+                                            </a>
+                                            <a href="editkelas.php?c_kelas=<?php echo $row["c_kelas"]  ?>">
+                                                <button class="btn-edit">
+                                                    <i class="fa fa-pencil"></i>
+                                                    Edit
+                                                </button>
+                                            </a>
+                                            <a href="../function/deletekelas.php?c_kelas=<?php echo $row["c_kelas"] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus kelas ini?')">
+                                                <button class="btn-trash">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </a>
+
+                                        </div>
+                                        <div class="android-version">
+                                            <button class='list-action'>
+                                                 <i class="fa-solid fa-list"></i>
                                             </button>
-                                        </a>
-                                        <a href="editkelas.php?c_kelas=<?php echo $row["c_kelas"]  ?>">
-                                            <button class="btn-edit">
-                                                <i class="fa fa-pencil"></i>
-                                                Edit
-                                            </button>
-                                        </a>
-                                        <a href="../function/deletekelas.php?c_kelas=<?php echo $row["c_kelas"] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus kelas ini?')">
-                                            <button class="btn-trash">
-                                                <i class="fa fa-trash"></i>
-                                            </button>
-                                        </a>
+
+                                            <div class="listbox-android">
+                                                <a href="siswa.php?c_kelas=<?php echo $row["c_kelas"]; ?>">
+                                                    <button class="btn-view">
+                                                        <i class="fa fa-eye"></i>
+                                                        
+                                                    </button>
+                                                </a>
+                                                <a href="editkelas.php?c_kelas=<?php echo $row["c_kelas"]  ?>">
+                                                    <button class="btn-edit">
+                                                        <i class="fa fa-pencil"></i>
+                                                        
+                                                    </button>
+                                                </a>
+                                                <a href="../function/deletekelas.php?c_kelas=<?php echo $row["c_kelas"] ?>" onclick="return confirm('Apakah anda yakin ingin menghapus kelas ini?')">
+                                                    <button class="btn-trash">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -251,6 +279,7 @@ require "../function/cek_user.php";
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="../js/menu.js"></script>
+    <script src="../js/listmenu.js"></script>
 
     <script type="text/javascript" charset="utf-8">
         $.noConflict();

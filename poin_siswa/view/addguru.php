@@ -41,7 +41,7 @@ require "../function/cek_user.php";
                 <i class="fa-solid fa-bars"></i>
             </button>
             <a href="../function/logout.php" class='func-logout'>
-                <button class='btn-logout'>
+                <button class='btn-logout dpnone'>
                     <i class="fa-solid fa-right-from-bracket"></i>
                     Logout
                 </button>
@@ -57,7 +57,7 @@ require "../function/cek_user.php";
                 <li>
                     <div class="account">
                         <div class="imgcontainer">
-                            <img src="../asset/logo.jpg" alt="">
+                            <img src="../asset/guest1.png" alt="">
                         </div>
                         <p> <?php                    
                                  echo $_SESSION["nama_akun"];
@@ -117,7 +117,7 @@ require "../function/cek_user.php";
                 ?>
                 <li>
                     <a href="../function/logout.php" class='func-logout'>
-                        <button class='btn-logout dpnone'>
+                        <button class='btn-logout'>
                             <i class="fa-solid fa-right-from-bracket"></i>
                             Logout
                         </button>
@@ -135,7 +135,7 @@ require "../function/cek_user.php";
                     <a href="guru.php">
                         <button class="button-add">
                             <i class="fa-solid fa-list"></i>
-                            Lihat Guru
+                            Lihat User
                         </button>
 
                     </a>
@@ -156,6 +156,14 @@ require "../function/cek_user.php";
                         <li>
                             <label for="">Password</label>
                             <input type="password" name="input_password" id="">
+                        </li>
+                        <li>
+                            <label for="">Role</label>
+                            <select name="input_role" id="">
+                                <option value="admin">Admin</option>
+                                <option value="superuser">Superuser</option>
+                                <option value="user">User</option>
+                            </select>
                         </li>
                         <li>
                             <input type="submit" value="Tambah Akun" class="btn-tambah">

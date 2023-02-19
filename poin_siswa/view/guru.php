@@ -143,7 +143,7 @@ require "../function/cek_user.php";
                 </div>
                 
                 <div class="main-table">
-                    <table id="tablepagination" class="table table-striped tablepagination" style="width:100%">
+                    <table id="" class="table table-striped tablepagination" style="width:100%">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -163,7 +163,13 @@ require "../function/cek_user.php";
                                 <td><?php echo $row["nama"];  ?></td>
                                 <td><?php echo $row["username"];  ?></td>
                                 <td><?php echo $row["password"];  ?></td>
-                                <td>
+                                <td class='dprow'>
+                                    <a href="edituser.php?c_user=<?= $row['id_user']; ?>">
+                                        <button class="btn-edit">
+                                            <i class="fa fa-pencil"></i>
+                                            Edit
+                                        </button>
+                                    </a>
                                     <a href="../function/deleteguru.php?id_user=<?php echo $row["id_user"]; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus user ini?')" >
                                         <button class="btn-trash">
                                             <i class="fa fa-trash"></i>

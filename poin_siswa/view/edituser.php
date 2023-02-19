@@ -1,6 +1,6 @@
 <?php
 require "../function/config.php";
-require "../function/inputpelanggaran.php";
+require "../function/readguru.php";
 
 require "../function/cek_user.php";
 ?>
@@ -13,12 +13,12 @@ require "../function/cek_user.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PoinSiswa | Pelanggaran</title>
+    <title>PoinSiswa | User</title>
+    <link rel="shortcut icon" href="../asset/logo_smkn1banjar.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/sidebar.css">
     <link rel="stylesheet" href="../css/kelas.css">
-    <link rel="stylesheet" href="../css/pelanggaran.css">
+    <link rel="stylesheet" href="../css/edituser.css">
     <link rel="stylesheet" href="../css/responsive.css">
-    <link rel="shortcut icon" href="../asset/logo_smkn1banjar.png" type="image/x-icon">
     <!-- CSS only -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
@@ -41,8 +41,8 @@ require "../function/cek_user.php";
             <button class="phone-menu-button" id="phone-menu-button">
                 <i class="fa-solid fa-bars"></i>
             </button>
-            <a href="../function/logout.php" class='func-logout dpnone'>
-                <button class='btn-logout'>
+            <a href="../function/logout.php" class='func-logout'>
+                <button class='btn-logout dpnone'>
                     <i class="fa-solid fa-right-from-bracket"></i>
                     Logout
                 </button>
@@ -60,9 +60,9 @@ require "../function/cek_user.php";
                         <div class="imgcontainer">
                             <img src="../asset/guest1.png" alt="">
                         </div>
-                        <p> <?php
-                            echo $_SESSION["nama_akun"];
-                            ?></p>
+                        <p> <?php                    
+                                 echo $_SESSION["nama_akun"];
+                                ?></p>
                     </div>
                 </li>
                 <li>
@@ -78,36 +78,38 @@ require "../function/cek_user.php";
                     </a>
                 </li>
                 <li>
-                    <a href="pelanggaran.php" class="item-sidebar  sidebar-active">
+                    <a href="pelanggaran.php" class="item-sidebar">
                         <i class="fa-solid fa-circle-exclamation"></i>
                         Input Pelanggaran
                     </a>
                 </li>
-
+                
                 <?php
-                if ($_SESSION["nama_akun"] == "admin" || $_SESSION["nama_akun"] == "skylakke") {
+                if($_SESSION["nama_akun"] == "admin" || $_SESSION["nama_akun"] == "skylakke"){
                     echo " <li>                  
-                    <a href='guru.php' class='item-sidebar'>
+                    <a href='guru.php' class='item-sidebar sidebar-active'>
                         <i class='fa-solid fa-user'></i>
                         Akun
                     </a> 
                 </li>";
                 }
                 ?>
+
                 <li>
                     <a href="kelas.php" class="item-sidebar ">
                         <i class="fa-solid fa-school"></i>
                         Kelas
                     </a>
                 </li>
+                
                 <li>
                     <a href="history.php" class="item-sidebar">
                         <i class="fa-solid fa-calendar-days"></i>
                         History
-                    </a>
+                    </a>       
                 </li>
                 <?php
-                if ($_SESSION["nama_akun"] == "admin" || $_SESSION["nama_akun"] == "skylakke") {
+                if($_SESSION["nama_akun"] == "admin" || $_SESSION["nama_akun"] == "skylakke"){
                     echo " <li>
                     <a href='logs.php' class='item-sidebar '>
                         <i class='fa-solid fa-file-pen'></i>
@@ -132,64 +134,45 @@ require "../function/cek_user.php";
         <div class="main-content">
             <div class="box-container">
                 <div class="title-box">
-                    <h2>Cari Siswa</h2>
+                    <h2>Edit Akun</h2>
+                    <a href="guru.php">
+                        <button class="button-add">
+                             <i class="fa-solid fa-xmark"></i>
+                            Batalkan
+                        </button>
+                    </a>
                 </div>
-                <div class="input-container">
-                    <form action="" method="post">
-                        <div class="input-main">
-                            <input type="text" name="input_kelas" id="" placeholder="Kelas">
-                            <input type="text" name="input_nama" id="" placeholder="NISN / Nama">
-                            <input type="submit" value="Cari" name="input_cari" id="" class="btn-cari">
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="box-container" style='height:130vh'>
-                <div class="title-box">
-                    <p>Hasil pencarian dari kelas <b></b> Dan Nama/Nisn <b></b> </p>
-                </div>
+                
                 <div class="main-table">
-
-                    <table id="tablepagination" class="table table-striped tablepagination" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>NISN</th>
-                                <th>Kelas</th>
-                                <th>Nama</th>
-                                <th>Opsi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $no = 1 ?>
-                            <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-                                <tr>
-                                    <td><?php echo $no;
-                                        $no++; ?></td>
-                                    <td><?php echo $row['nisn'] ?></td>
-                                    <td><?php echo $row['nama_kelas'] ?></td>
-                                    <td><?php echo $row['nama'] ?></td>
-                                    <td>
-                                        <a href="addpoin.php?c_siswa=<?php echo $row['c_siswa']; ?>&c_kelas=<?php echo $row['c_kelas']; ?>" class="link-poin">
-                                            <button class="button-next">
-                                                <span>
-                                                    Pilih Siswa
-                                                </span>
-                                                <i class="fa-solid fa-check"></i>
-                                            </button>
-                                        </a>
-                                    </td>
-                                </tr>
-                            <?php }  ?>
-                        </tbody>
-                    </table>
-                    <!-- <input type="submit" value="Selanjutnya" class="button-next" name="input_submit"> -->
-
+                   <ul>
+                    <?php 
+                        $c_user = $_GET["c_user"];
+                        $sql2 = "SELECT * FROM user WHERE id_user='$c_user'";
+                        $result2 = mysqli_query($conn,$sql2 );  
+                    ?>
+                    <?php while($d = mysqli_fetch_assoc($result2)): ?>
+                    <form action="../function/edit_user.php?c_user=<?= $c_user ?>" method="post">
+                        <li>
+                            <h2>Nama</h2>
+                            <input type="text" name="input_nama" id="" value="<?= $d["nama"] ?>">
+                        </li>
+                        <li>
+                            <h2>Username</h2>
+                            <input type="text" name="input_username" id="" value="<?= $d["username"] ?>">
+                        </li>
+                        <li>
+                            <h2>Password</h2>
+                            <input type="text" name="input_password" id="" value="<?= $d["password"] ?>">
+                        </li>
+                        <li>
+                            <input type="submit" value="Selesai" name='btn_submit'>
+                        </li>
+                    </form>
+                    <?php endwhile ?>
+                   </ul>
                 </div>
             </div>
         </div>
-
         <!-- main content -->
 
     </main>
@@ -199,12 +182,12 @@ require "../function/cek_user.php";
     <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="../js/menu.js"></script>
-
+  
     <script type="text/javascript" charset="utf-8">
         $.noConflict();
         $(document).ready(function() {
             $('.tablepagination').DataTable();
-        });
+        } );
     </script>
 </body>
 
