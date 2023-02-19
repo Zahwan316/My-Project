@@ -14,7 +14,6 @@ phone_menu_button.addEventListener("click",() => {
         sidebar.style.display = "none";
         sidebar.classList.add("closesidebaranm");
         sidebar.classList.remove("sidebaranm");
-        
         toggle = true;
     }
 })
